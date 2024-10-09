@@ -1,6 +1,6 @@
 # PokeTest
 
-Este es un proyecto realizado que consiste en la creación de un catálogo de Pokémon utilizando React, Redux, Tailwind y la PokeAPI.
+Este es un proyecto que consiste en la creación de un catálogo de Pokémon utilizando React, Redux, Tailwind y la PokeAPI.
 
 ## Instrucciones para ejecutar el proyecto
 
