@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { getPokemonList, getPokemonDetailByUrl } from '../../services/pokemonService';
 import Navbar from '../../components/NavBar/NavBar';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import PokemonCard from '../../components/PokemonCard/PokemonCard'; // Importamos el componente de la tarjeta
-import './Home.css';
 
 const Home = () => {
     // Estados
-    const [pokemonList, setPokemonList] = useState([]);
+    const [pokemonList, setPokemonList] = useState([]);  // Lista completa
+    const [filteredPokemonList, setFilteredPokemonList] = useState([]);  // Lista filtrada por la búsqueda
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(0);
 
@@ -24,6 +23,7 @@ const Home = () => {
                     pokemonDetails.push(detail);
                 }
                 setPokemonList(pokemonDetails);
+                setFilteredPokemonList(pokemonDetails); // Inicialmente mostramos todos los pokemones
             }
             setLoading(false);
         };
@@ -38,9 +38,23 @@ const Home = () => {
         if (page > 0) setPage(page - 1);
     };
 
+    // Manejar búsqueda
+    const handleSearch = (query) => {
+        if (query === '') {
+            // Si no hay búsqueda, mostrar la lista completa
+            setFilteredPokemonList(pokemonList);
+        } else {
+            const filtered = pokemonList.filter((pokemon) =>
+                pokemon.name.toLowerCase().includes(query.toLowerCase())
+            );
+            setFilteredPokemonList(filtered);
+        }
+    };
+
     return (
         <div>
             <Navbar />
+            <SearchBar placeholder="Search Pokémon..." onSearch={handleSearch} />
             <h1>Pokémon List</h1>
             {loading ? (
                 <p>Loading...</p>
