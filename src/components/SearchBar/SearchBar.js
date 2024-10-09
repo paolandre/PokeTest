@@ -8,7 +8,7 @@ const SearchBar = ({ placeholder, onSearch }) => {
         const newQuery = e.target.value;
         setQuery(newQuery);
         if (onSearch) {
-            onSearch(newQuery); // Ejecutar la búsqueda al escribir
+            onSearch(newQuery);
         }
     };
 
