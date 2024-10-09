@@ -23,11 +23,15 @@
 }
 
 .favorite-icon {
-    margin-top: 10px;
+    cursor: pointer;
     font-size: 24px;
-    color: #ccc;
+    color: gray;
 }
 
-.favorite-icon.favorite {
+.favorite-icon.is-favorite {
     color: red;
+    cursor: pointer;
+    font-size: 24px;
+    cursor: pointer;
+    font-size: 24px;
 }

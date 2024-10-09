@@ -6,6 +6,9 @@ import PokemonCard from '../../components/PokemonCard/PokemonCard';
 import Pagination from '../../components/Pagination/Pagination';
 import Footer from '../../components/Footer/Footer';
 import './Home.css'
+import { useSelector } from 'react-redux';  // Asegúrate de importar useSelector
+import { selectFavoritePokemons } from '../../redux/favoriteSlice';  // Asegúrate de importar selectFavoritePokemons
+import './Home.css';
 
 const Home = () => {
     // Estados
@@ -14,6 +17,9 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(10);
+
+    // Obtener los Pokémon favoritos desde Redux
+    const favoritePokemons = useSelector(selectFavoritePokemons);
 
     // Se actualiza cuando cambia la lista de pokemones de la página
     useEffect(() => {
@@ -67,7 +73,6 @@ const Home = () => {
                                 key={pokemon.name}
                                 name={pokemon.name}
                                 image={pokemon.sprites.front_default}
-                                isFavorite={false}
                             />
                         ))
                     ) : (

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logo from '../../assets/logo.png';
 import profileIcon from '../../assets/profile-icon.png';
 import './NavBar.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -19,8 +20,8 @@ const Navbar = () => {
 
             {/* Menú para escritorio */}
             <div className="desktop-menu">
-                <a href="/" className="menu-link">Home</a>
-                <a href="/favorites" className="menu-link">Favorites</a>
+                <Link to="/" className="menu-link">Home</Link>
+                <Link to="/favorites" className="menu-link">Favorites</Link>
             </div>
 
             {/* Icono de perfil con borde redondeado */}
@@ -55,8 +56,8 @@ const Navbar = () => {
             {/* Menú desplegable para móviles */}
             {menuOpen && (
                 <div className="dropdown-menu">
-                    <a href="/" className="dropdown-item">Home</a>
-                    <a href="/favorites" className="dropdown-item">Favorites</a>
+                    <Link to="/" className="dropdown-item">Home</Link>  {/* Usa Link en lugar de <a> */}
+                    <Link to="/favorites" className="dropdown-item">Favorites</Link>  {/* Usa Link en lugar de <a> */}
                 </div>
             )}
         </nav>
