@@ -1,41 +1,66 @@
 .pokemon-card {
-    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #EDEFF2;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 16px;
-    text-align: center;
-    transition: transform 0.2s;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
     width: 180px;
-    margin: 16px;
+    height: 220px;
 }
 
 .pokemon-card:hover {
-    transform: scale(1.05);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.pokemon-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 120px;
 }
 
 .pokemon-image {
-    width: 100px;
-    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
     object-fit: contain;
-    margin-bottom: 16px;
 }
 
 .pokemon-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    background-color: #EDEFF2;
+    padding: 8px 12px;
+    border-radius: 0 0 12px 12px;
 }
 
-.favorite-icon {
+.pokemon-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    text-transform: capitalize;
+}
+
+.favorite-button {
+    background: none;
+    border: none;
     cursor: pointer;
 }
 
 .heart-icon {
-    width: 24px;
-    height: 24px;
-    transition: fill 0.3s ease;
+    height: 20px;
+    width: 20px;
+    stroke: #333;
+    transition: stroke 0.3s ease;
 }
 
-.pokemon-info h3 {
-    margin: 0;
+.favorite-button:hover .heart-icon {
+    stroke: #E74C3C;
 }

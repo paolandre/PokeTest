@@ -2,15 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { getPokemonList, getPokemonDetailByUrl } from '../../services/pokemonService';
 import Navbar from '../../components/NavBar/NavBar';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import PokemonCard from '../../components/PokemonCard/PokemonCard';
 
+import './Home.css'
 const Home = () => {
     // Estados
-    const [pokemonList, setPokemonList] = useState([]);  // Lista completa
-    const [filteredPokemonList, setFilteredPokemonList] = useState([]);  // Lista filtrada por la búsqueda
+    const [pokemonList, setPokemonList] = useState([]);
+    const [filteredPokemonList, setFilteredPokemonList] = useState([]);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(0);
 
-    // Se actualiza cuando cambia la lista de pokemones de la página
+
     useEffect(() => {
         const fetchPokemonList = async () => {
             setLoading(true);
@@ -23,7 +25,7 @@ const Home = () => {
                     pokemonDetails.push(detail);
                 }
                 setPokemonList(pokemonDetails);
-                setFilteredPokemonList(pokemonDetails); // Inicialmente mostramos todos los pokemones
+                setFilteredPokemonList(pokemonDetails);
             }
             setLoading(false);
         };
@@ -59,22 +61,20 @@ const Home = () => {
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <ul>
+                <div className="pokemon-list">
                     {filteredPokemonList.length > 0 ? (
                         filteredPokemonList.map(pokemon => (
-                            <li key={pokemon.name}>
-                                {pokemon.sprites && pokemon.sprites.front_default ? (
-                                    <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-                                ) : (
-                                    <p>No image available</p>
-                                )}
-                                {pokemon.name}
-                            </li>
+                            <PokemonCard
+                                key={pokemon.name}
+                                name={pokemon.name}
+                                image={pokemon.sprites.front_default}
+                                isFavorite={false}
+                            />
                         ))
                     ) : (
                         <p>No Pokémon found</p>
                     )}
-                </ul>
+                </div>
             )}
             <button onClick={handlePrevPage} disabled={page === 0}>
                 Previous
