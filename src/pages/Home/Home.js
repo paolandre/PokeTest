@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getPokemonList, getPokemonDetailByUrl } from '../../services/pokemonService';
+import Navbar from '../../components/NavBar/NavBar';
 
 const Home = () => {
     // Estados
@@ -36,6 +37,7 @@ const Home = () => {
 
     return (
         <div>
+            <Navbar />
             <h1>Pokémon List</h1>
             {loading ? (
                 <p>Loading...</p>
