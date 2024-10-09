@@ -1,25 +1,79 @@
 .pokemon-detail-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: left;
+    align-self: flex-start;
+}
+
+.pokemon-detail {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 50px;
+    gap: 20px;
 }
 
 .pokemon-image img {
-    width: 300px;
+    width: 400px;
+    /* Aumentar el tamaño de la imagen del Pokémon */
     height: auto;
 }
 
 .pokemon-info {
-    margin-left: 50px;
+    max-width: 400px;
+    /* Ajustar el ancho máximo de la información */
+    text-align: left;
 }
 
-.pokemon-info h1 {
-    font-size: 2rem;
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 48px;
+    /* Aumenta el tamaño de la fuente del nombre */
+}
+
+.favorite {
+    font-size: 36px;
+    /* Ajusta el tamaño del ícono de corazón */
+    color: red;
+    margin-left: 10px;
+}
+
+.abilities {
+    margin-top: 20px;
+}
+
+.abilities h2 {
+    font-size: 20px;
     font-weight: bold;
 }
 
-.pokemon-info p {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+.details p {
+    margin: 5px 0;
+}
+
+.details strong {
+    font-size: 18px;
+}
+
+/* Centrar todo el contenido */
+.pokemon-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemon-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
