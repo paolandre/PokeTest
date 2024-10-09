@@ -1,0 +1,70 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    /* Permite que los botones se ajusten en líneas */
+}
+
+.pagination-btn {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 32px;
+    /* Aseguramos que los botones no se encojan demasiado */
+    text-align: center;
+}
+
+.pagination-btn:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination-btn.active {
+    background-color: #333;
+    color: white;
+    border-radius: 50%;
+}
+
+.pagination-btn:hover:not(.active):not(:disabled) {
+    background-color: #f0f0f0;
+    border-radius: 50%;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .pagination-btn {
+        padding: 8px;
+        /* Reducimos el tamaño de los botones */
+        margin: 0 3px;
+        /* Reducimos el espacio entre los botones */
+    }
+
+    /* Muestra solo las primeras y últimas páginas, y un rango corto alrededor de la página actual */
+    .pagination-btn:nth-child(n+6):nth-last-child(n+3) {
+        display: none;
+        /* Ocultamos algunas páginas cuando hay muchas */
+    }
+
+    /* Ajustamos los márgenes y el espacio de la paginación en dispositivos más pequeños */
+    .pagination {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagination-btn {
+        padding: 6px;
+        margin: 0 2px;
+    }
+
+    /* Aún menos botones visibles en pantallas muy pequeñas */
+    .pagination-btn:nth-child(n+4):nth-last-child(n+3) {
+        display: none;
+    }
+}

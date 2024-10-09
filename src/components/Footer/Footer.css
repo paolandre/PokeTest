@@ -1,0 +1,54 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Alinea todo el contenido del footer a la izquierda */
+    justify-content: center;
+    padding: 20px;
+    background-color: white;
+    color: #333;
+    text-align: left;
+    /* Cambia el texto a la izquierda */
+    font-family: Arial, sans-serif;
+}
+
+.footer-logo img {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.footer-text {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: flex-start;
+    /* Alinea los iconos a la izquierda */
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-icon {
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.footer-icon:hover {
+    color: #00A76F;
+    /* Color verde cuando se hace hover */
+}
+
+.footer-grut {
+    font-size: 18px;
+    color: #8316F0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-firm:hover {
+    color: #555;
+}
