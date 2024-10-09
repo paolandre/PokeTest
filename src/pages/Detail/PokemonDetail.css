@@ -1,5 +1,4 @@
 .pokemon-detail-container {
-    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,9 +6,9 @@
 
 .breadcrumb {
     font-size: 14px;
-    margin-bottom: 20px;
     text-align: left;
     align-self: flex-start;
+    margin-left: 2%;
 }
 
 .pokemon-detail {
@@ -17,39 +16,38 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+    width: 100%;
 }
 
-.pokemon-image img {
-    width: 400px;
-    /* Aumentar el tamaño de la imagen del Pokémon */
-    height: auto;
+.pokemon-image-detail img {
+    width: 300px;
+    height: 300px;
 }
 
 .pokemon-info {
     max-width: 400px;
-    /* Ajustar el ancho máximo de la información */
     text-align: left;
 }
 
 .header {
     display: flex;
     align-items: center;
+    gap: 100px;
 }
 
 .header h1 {
-    font-size: 48px;
-    /* Aumenta el tamaño de la fuente del nombre */
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .favorite {
     font-size: 36px;
-    /* Ajusta el tamaño del ícono de corazón */
     color: red;
-    margin-left: 10px;
+    cursor: pointer;
 }
 
 .abilities {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .abilities h2 {
@@ -65,7 +63,6 @@
     font-size: 18px;
 }
 
-/* Centrar todo el contenido */
 .pokemon-detail-container {
     display: flex;
     flex-direction: column;
@@ -76,4 +73,50 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.pokemon-name-detail {
+    font-size: 30px;
+
+}
+
+@media (max-width: 768px) {
+    .pokemon-detail {
+        flex-direction: column;
+    }
+
+    .pokemon-image-detail {
+        border: 1px solid #e1e1e1;
+        margin-top: 13px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .pokemon-detail {
+        flex-direction: column;
+    }
+
+    .pokemon-image-detail {
+        border: 1px solid #e1e1e1;
+        margin-top: 13px;
+    }
+}
+
+.detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.detail-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    padding: 10px;
+}
+
+.detail-list-item strong {
+    margin-right: 10px;
 }

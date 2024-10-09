@@ -6,6 +6,7 @@ import PokemonCard from '../../components/PokemonCard/PokemonCard';
 import Footer from '../../components/Footer/Footer';
 import { selectFavoritePokemons } from '../../redux/favoriteSlice';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import './FavoritePokemons.css'
 
 const Favorites = () => {
     const favoritePokemons = useSelector(selectFavoritePokemons);
@@ -53,7 +54,7 @@ const Favorites = () => {
                     ))}
                 </div>
             ) : (
-                <p>No hay Pokemones seleccionados como favoritos.</p>
+                <p className='not-favorite-message'>No hay Pokemones seleccionados como favoritos.</p>
             )}
 
             <Footer />

@@ -24,7 +24,7 @@ const Navbar = () => {
                 <Link to="/favorites" className="menu-link">Favorites</Link>
             </div>
 
-            {/* Icono de perfil con borde redondeado */}
+            {/* Icono de perfil*/}
             <div className="profile-icon-container">
                 <img
                     src={profileIcon}
@@ -33,7 +33,7 @@ const Navbar = () => {
                 />
             </div>
 
-            {/* Menú hamburguesa para móviles */}
+            {/* Menú hamburguesa */}
             <div className="menu-hamburger">
                 <button onClick={toggleMenu} className="hamburger-button">
                     <svg
@@ -53,11 +53,11 @@ const Navbar = () => {
                 </button>
             </div>
 
-            {/* Menú desplegable para móviles */}
+            {/* Menú desplegable*/}
             {menuOpen && (
                 <div className="dropdown-menu">
-                    <Link to="/" className="dropdown-item">Home</Link>  {/* Usa Link en lugar de <a> */}
-                    <Link to="/favorites" className="dropdown-item">Favorites</Link>  {/* Usa Link en lugar de <a> */}
+                    <Link to="/" className="dropdown-item">Home</Link>
+                    <Link to="/favorites" className="dropdown-item">Favorites</Link>
                 </div>
             )}
         </nav>

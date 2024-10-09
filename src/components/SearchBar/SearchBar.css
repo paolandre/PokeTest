@@ -1,17 +1,17 @@
-/* Estructura principal */
 .search-bar {
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 400px;
-    background-color: #f9f9f9;
+    max-width: 320px;
+    background-color: #ffffff;
     border: 1px solid #e1e1e1;
     border-radius: 8px;
     padding: 8px 12px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    margin-left: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
-/* Icono de búsqueda */
 .search-icon {
     margin-right: 8px;
 }
@@ -22,7 +22,6 @@
     color: #9ca3af;
 }
 
-/* Campo de entrada */
 .search-input {
     width: 100%;
     border: none;

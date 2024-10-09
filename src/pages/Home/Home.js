@@ -6,8 +6,8 @@ import PokemonCard from '../../components/PokemonCard/PokemonCard';
 import Pagination from '../../components/Pagination/Pagination';
 import Footer from '../../components/Footer/Footer';
 import './Home.css'
-import { useSelector } from 'react-redux';  // Asegúrate de importar useSelector
-import { selectFavoritePokemons } from '../../redux/favoriteSlice';  // Asegúrate de importar selectFavoritePokemons
+import { useSelector } from 'react-redux';
+import { selectFavoritePokemons } from '../../redux/favoriteSlice';
 import './Home.css';
 
 const Home = () => {
@@ -76,12 +76,11 @@ const Home = () => {
                             />
                         ))
                     ) : (
-                        <p>No Pokémon found</p>
+                        <p>No hay pokemones</p>
                     )}
                 </div>
             )}
 
-            {/* Agregamos el componente de paginación */}
             <Pagination
                 currentPage={page}
                 totalPages={totalPages}

@@ -1,6 +1,16 @@
 .pokemon-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px;
+    padding: 20px;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+@media (max-width: 768px) {
+    .pokemon-list {
+        grid-template-columns: 1fr;
+    }
 }
