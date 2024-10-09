@@ -24,15 +24,17 @@ const PokemonCard = ({ name, image }) => {
     return (
         <div className="pokemon-card" onClick={handleCardClick}>
             <img src={image} alt={name} />
-            <h3>{name}</h3>
-            <span
-                className={`favorite-icon ${isFavorite ? 'is-favorite' : 'not-favorite'}`}
-                onClick={handleFavoriteClick}
-            >
-                {isFavorite ? '❤️' : '🤍'}
-            </span>
-
-
+            <div className='grey-box'>
+                <div className='row-name-like'>
+                    <h3 className='pokemon-name'>{name}</h3>
+                    <span
+                        className={`favorite-icon ${isFavorite ? 'is-favorite' : 'not-favorite'}`}
+                        onClick={handleFavoriteClick}
+                    >
+                        {isFavorite ? '❤️' : '🤍'}
+                    </span>
+                </div>
+            </div>
         </div>
     );
 };

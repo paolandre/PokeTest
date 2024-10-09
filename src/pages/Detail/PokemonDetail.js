@@ -38,20 +38,20 @@ const PokemonDetail = () => {
                     <Link to="/">Home</Link> &gt; {pokemon.name}
                 </nav>
                 <div className="pokemon-detail">
-                    <div className="pokemon-image">
+                    <div className="pokemon-image-detail">
                         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
                     </div>
                     <div className="pokemon-info">
                         <div className="header">
-                            <h1>{pokemon.name}
-                                <span
-                                    className={`favorite-icon ${isFavorite ? 'favorite' : ''}`}
-                                    onClick={handleFavoriteClick}
-                                >
-                                    {isFavorite ? '❤️' : '🤍'}
-                                </span>
-                            </h1>
+                            <h1 className='pokemon-name-detail'>{pokemon.name}</h1>
+                            <span
+                                className={`favorite ${isFavorite ? 'favorite' : ''}`}
+                                onClick={handleFavoriteClick}
+                            >
+                                {isFavorite ? '❤️' : '🤍'}
+                            </span>
                         </div>
+                        <div></div>
                         <div className="abilities">
                             <h2>Habilidades</h2>
                             {pokemon.abilities.map((abilityInfo, index) => (

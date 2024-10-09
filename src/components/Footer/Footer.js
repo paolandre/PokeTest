@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaXTwitter } from "react-icons/fa6";
 import './Footer.css';
 import logo from '../../assets/logo.png';
 
@@ -26,11 +27,11 @@ const Footer = () => {
                     <FaLinkedinIn />
                 </a>
                 <a href="https://www.twitter.com" className="footer-icon" aria-label="Twitter">
-                    <FaTwitter />
+                    <FaXTwitter />
                 </a>
             </div>
 
-            {/* Firma */}
+            {/* Empresa */}
             <a href="https://grutstudio.com" className="footer-grut">
                 Grutstudio
             </a>
