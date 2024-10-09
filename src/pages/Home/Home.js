@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getPokemonList, getPokemonDetailByUrl } from '../../services/pokemonService';
 import Navbar from '../../components/NavBar/NavBar';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import PokemonCard from '../../components/PokemonCard/PokemonCard'; // Importamos el componente de la tarjeta
+import './Home.css';
 
 const Home = () => {
     // Estados
@@ -43,16 +46,20 @@ const Home = () => {
                 <p>Loading...</p>
             ) : (
                 <ul>
-                    {pokemonList.map(pokemon => (
-                        <li key={pokemon.name}>
-                            {pokemon.sprites && pokemon.sprites.front_default ? (
-                                <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-                            ) : (
-                                <p>No image available</p>
-                            )}
-                            {pokemon.name}
-                        </li>
-                    ))}
+                    {filteredPokemonList.length > 0 ? (
+                        filteredPokemonList.map(pokemon => (
+                            <li key={pokemon.name}>
+                                {pokemon.sprites && pokemon.sprites.front_default ? (
+                                    <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+                                ) : (
+                                    <p>No image available</p>
+                                )}
+                                {pokemon.name}
+                            </li>
+                        ))
+                    ) : (
+                        <p>No Pokémon found</p>
+                    )}
                 </ul>
             )}
             <button onClick={handlePrevPage} disabled={page === 0}>
