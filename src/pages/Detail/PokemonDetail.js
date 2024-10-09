@@ -4,10 +4,15 @@ import { getPokemonDetailByUrl } from '../../services/pokemonService';
 import './PokemonDetail.css'
 import Footer from '../../components/Footer/Footer';
 import Navbar from '../../components/NavBar/NavBar';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleFavorite, selectFavoritePokemons } from '../../redux/favoriteSlice';
 
 const PokemonDetail = () => {
     const { name } = useParams();
     const [pokemon, setPokemon] = useState(null);
+    const dispatch = useDispatch();
+    const favoritePokemons = useSelector(selectFavoritePokemons);
+    const isFavorite = favoritePokemons.includes(name);
 
     useEffect(() => {
         const fetchPokemonDetail = async () => {
@@ -17,12 +22,17 @@ const PokemonDetail = () => {
         fetchPokemonDetail();
     }, [name]);
 
+    const handleFavoriteClick = () => {
+        dispatch(toggleFavorite(name));
+    };
+
     if (!pokemon) {
         return <p>Loading...</p>;
     }
 
     return (
-        <><Navbar />
+        <>
+            <Navbar />
             <div className="pokemon-detail-container">
                 <nav className="breadcrumb">
                     <Link to="/">Home</Link> &gt; {pokemon.name}
@@ -33,7 +43,14 @@ const PokemonDetail = () => {
                     </div>
                     <div className="pokemon-info">
                         <div className="header">
-                            <h1>{pokemon.name} <span className="favorite">❤️</span></h1>
+                            <h1>{pokemon.name}
+                                <span
+                                    className={`favorite-icon ${isFavorite ? 'favorite' : ''}`}
+                                    onClick={handleFavoriteClick}
+                                >
+                                    {isFavorite ? '❤️' : '🤍'}
+                                </span>
+                            </h1>
                         </div>
                         <div className="abilities">
                             <h2>Habilidades</h2>
