@@ -10,7 +10,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/pokemon/:name" component={PokemonDetail} />
+          <Route path="/pokemon/:name" element={<PokemonDetail />} />
         </Routes>
       </div>
     </Router>

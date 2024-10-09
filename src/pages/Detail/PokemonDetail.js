@@ -1,46 +1,56 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getPokemonDetailByUrl } from '../../services/pokemonService';
 import './PokemonDetail.css'
+import Footer from '../../components/Footer/Footer';
+import Navbar from '../../components/NavBar/NavBar';
 
 const PokemonDetail = () => {
     const { name } = useParams();
     const [pokemon, setPokemon] = useState(null);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchPokemonDetail = async () => {
-            setLoading(true);
             const data = await getPokemonDetailByUrl(`https://pokeapi.co/api/v2/pokemon/${name}`);
             setPokemon(data);
-            setLoading(false);
         };
-
         fetchPokemonDetail();
     }, [name]);
 
-    if (loading) {
+    if (!pokemon) {
         return <p>Loading...</p>;
     }
 
-    if (!pokemon) {
-        return <p>Pokémon not found</p>;
-    }
-
     return (
-        <div className="pokemon-detail-container">
-            <div className="pokemon-image">
-                <img src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} />
+        <><Navbar />
+            <div className="pokemon-detail-container">
+                <nav className="breadcrumb">
+                    <Link to="/">Home</Link> &gt; {pokemon.name}
+                </nav>
+                <div className="pokemon-detail">
+                    <div className="pokemon-image">
+                        <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+                    </div>
+                    <div className="pokemon-info">
+                        <div className="header">
+                            <h1>{pokemon.name} <span className="favorite">❤️</span></h1>
+                        </div>
+                        <div className="abilities">
+                            <h2>Habilidades</h2>
+                            {pokemon.abilities.map((abilityInfo, index) => (
+                                <p key={index}>{abilityInfo.ability.name}</p>
+                            ))}
+                        </div>
+                        <div className="details">
+                            <p><strong>Altura:</strong> {pokemon.height}</p>
+                            <p><strong>Peso:</strong> {pokemon.weight}</p>
+                            <p><strong>Tipo:</strong> {pokemon.types.map(typeInfo => typeInfo.type.name).join(', ')}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="pokemon-info">
-                <h1>{pokemon.name}</h1>
-                <p><strong>Habilidades:</strong> {pokemon.abilities.map(ability => ability.ability.name).join(', ')}</p>
-                <p><strong>Género:</strong> Lorem</p>
-                <p><strong>Tamaño:</strong> {pokemon.height} decimetros</p>
-                <p><strong>Forma:</strong> Lorem</p>
-                <p><strong>Tipo:</strong> {pokemon.types.map(type => type.type.name).join(', ')}</p>
-            </div>
-        </div>
+            <Footer />
+        </>
     );
 };
 
